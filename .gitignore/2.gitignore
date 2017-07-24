@@ -1,0 +1,17 @@
+plt.Figure()
+color_list = ["bo:", "ro:", "ko:"]
+for index in range(len(food_list)):
+    food = food_list[index]
+    color = color_list[index]
+    x = range(1, 13)
+    y = []
+    for month in x:
+        if month in food_time[food]:
+            y.append(food_time[food][month][1] / food_time[food][month][0])
+        else:
+            y.append(0)
+    plt.plot(x, y, color, label=food)
+plt.xlabel("month")
+plt.ylabel("price")
+plt.legend()
+plt.savefig("month.png")
